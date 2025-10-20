@@ -1,0 +1,80 @@
+[
+  {
+    "id": "1",
+    "title": "A Jornada do Escritor",
+    "author": "Maria Silva",
+    "category": "Ficção",
+    "pages": 342,
+    "publishedYear": 2023,
+    "coverImage": "https://covers.openlibrary.org/b/id/8231672-L.jpg",
+    "synopsis": "Uma história envolvente sobre um escritor que descobre que suas palavras têm o poder de moldar a realidade. Acompanhe João em sua jornada de autodescoberta enquanto ele navega entre o mundo real e o universo de suas criações literárias.",
+    "pdfUrl": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+    "rating": 4.5,
+    "isbn": "978-1234567890"
+  },
+  {
+    "id": "2",
+    "title": "Memórias de um Tempo Perdido",
+    "author": "Carlos Mendes",
+    "category": "Biografia",
+    "pages": 278,
+    "publishedYear": 2022,
+    "coverImage": "https://covers.openlibrary.org/b/id/10909258-L.jpg",
+    "synopsis": "Uma coletânea de memórias que atravessam décadas, revelando histórias pessoais e momentos marcantes que moldaram uma geração. Um relato íntimo e comovente sobre família, amor e superação.",
+    "pdfUrl": "https://www.africau.edu/images/default/sample.pdf",
+    "rating": 4.8,
+    "isbn": "978-1234567891"
+  },
+  {
+    "id": "3",
+    "title": "O Segredo das Estrelas",
+    "author": "Ana Costa",
+    "category": "Ficção Científica",
+    "pages": 456,
+    "publishedYear": 2024,
+    "coverImage": "https://covers.openlibrary.org/b/id/8231672-L.jpg",
+    "synopsis": "Em um futuro distante, a humanidade descobre um sinal vindo das estrelas. Uma equipe de cientistas embarca em uma missão épica para desvendar os mistérios do universo e encontrar vida inteligente além da Terra.",
+    "pdfUrl": "https://www.clickdimensions.com/links/TestPDFfile.pdf",
+    "rating": 4.6,
+    "isbn": "978-1234567892"
+  },
+  {
+    "id": "4",
+    "title": "Receitas da Vovó",
+    "author": "Helena Santos",
+    "category": "Culinária",
+    "pages": 198,
+    "publishedYear": 2023,
+    "coverImage": "https://covers.openlibrary.org/b/id/10909258-L.jpg",
+    "synopsis": "Uma coleção de receitas tradicionais passadas de geração em geração. Cada prato conta uma história e traz o sabor da comida caseira que aquece o coração e alimenta a alma.",
+    "pdfUrl": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+    "rating": 4.9,
+    "isbn": "978-1234567893"
+  },
+  {
+    "id": "5",
+    "title": "Código Limpo na Prática",
+    "author": "Roberto Oliveira",
+    "category": "Tecnologia",
+    "pages": 512,
+    "publishedYear": 2024,
+    "coverImage": "https://covers.openlibrary.org/b/id/8231672-L.jpg",
+    "synopsis": "Um guia prático para escrever código limpo, manutenível e eficiente. Aprenda princípios SOLID, padrões de design e boas práticas de programação com exemplos reais e aplicáveis.",
+    "pdfUrl": "https://www.africau.edu/images/default/sample.pdf",
+    "rating": 4.7,
+    "isbn": "978-1234567894"
+  },
+  {
+    "id": "6",
+    "title": "Poesias do Amanhecer",
+    "author": "Lucia Ferreira",
+    "category": "Poesia",
+    "pages": 156,
+    "publishedYear": 2023,
+    "coverImage": "https://covers.openlibrary.org/b/id/10909258-L.jpg",
+    "synopsis": "Uma coletânea de poesias que celebram a beleza dos pequenos momentos. Versos que tocam a alma e despertam emoções adormecidas, como os primeiros raios de sol da manhã.",
+    "pdfUrl": "https://www.clickdimensions.com/links/TestPDFfile.pdf",
+    "rating": 4.4,
+    "isbn": "978-1234567895"
+  }
+]
