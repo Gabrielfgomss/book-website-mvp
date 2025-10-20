@@ -1,43 +1,144 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# production
-/build
-/dist
-
-# Vite
-dist-ssr
-*.local
-
-# debug
+# ========================
+# Logs
+# ========================
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# env files
+# ========================
+# Dependencies
+# ========================
+node_modules/
+front/node_modules/
+back/node_modules/
+.pnp
+.pnp.js
+.yarn/*
+!.yarn/cache
+!.yarn/unplugged
+!.yarn/patches
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# ========================
+# Testing
+# ========================
+coverage
+*.lcov
+.nyc_output
+
+# ========================
+# Production builds
+# ========================
+dist
+dist-ssr
+build
+.next
+out
+
+# Frontend builds
+front/dist/
+front/dist-ssr/
+front/build/
+
+# Backend builds
+back/build/
+back/dist/
+
+# ========================
+# Environment variables
+# ========================
 .env
-.env*.local
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# vercel
-.vercel
+# Frontend env
+front/.env
+front/.env.local
+front/.env.*.local
 
-# typescript
-*.tsbuildinfo
-*.tsbuildinfo.*
+# Backend env (CRÍTICO - contém secrets!)
+back/.env
+back/.env.local
+back/.env.*.local
 
-# editor directories and files
+# ========================
+# Editor directories and files
+# ========================
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+*.swp
+*.swo
+
+# ========================
+# OS files
+# ========================
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE_BIN/
+
+# ========================
+# Strapi Backend specific
+# ========================
+back/.strapi/
+back/.cache/
+back/build/
+back/.tmp/
+back/dist/
+back/exports/
+back/.strapi-updater.json
+back/.strapi-cloud.json
+back/license.txt
+
+# Strapi uploads (ignorar uploads mas manter .gitkeep)
+back/public/uploads/*
+!back/public/uploads/.gitkeep
+
+# Database (SQLite dev)
+back/.tmp/data.db
+*.sqlite
+*.sqlite3
+
+# ========================
+# Vite Frontend specific
+# ========================
+front/dist/
+front/dist-ssr/
+front/.vite/
+front/.vercel/
+front/.turbo/
+
+# ========================
+# Temporary files
+# ========================
+*.tmp
+.temp
+*.cache
+.eslintcache
+.tsbuildinfo
+
+# ========================
+# Package manager locks (opcional - descomentar se quiser ignorar)
+# ========================
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml

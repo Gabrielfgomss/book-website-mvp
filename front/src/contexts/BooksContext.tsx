@@ -1,4 +1,3 @@
-import type React from "react"
 import { createContext, useContext, useState, useEffect, useCallback } from "react"
 import type { Book, BookFilters } from "@/types/book"
 import { booksService, type PaginationOptions } from "@/services/booksService"
@@ -87,7 +86,7 @@ export const BooksProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   const handleSetItemsPerPage = useCallback((items: 10 | 20 | 50 | 100) => {
     setItemsPerPage(items)
-    setCurrentPage(1) // Reset para primeira página ao mudar itens por página
+    setCurrentPage(1)
   }, [])
 
   return (
