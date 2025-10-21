@@ -70,7 +70,7 @@ Entregar um site responsivo em React + TypeScript com painel Strapi. Deploy em H
   - Dependências: Nenhuma
   - DoD: Strapi rodando localmente na porta 1337
 
-- [ x ] **[BACK-002]** Criar Content Types (Models)
+- [x] **[BACK-002]** Criar Content Types (Models)
   - Book: title, author (relation), categories (array), summary, pages_count, publish_date, cover_image, pdf_file, slug
   - Author: name, bio, photo
   - Page: key, title, content (richtext)
@@ -80,7 +80,7 @@ Entregar um site responsivo em React + TypeScript com painel Strapi. Deploy em H
     - https://www.youtube.com/watch?v=vcopLqUq594
     - https://www.youtube.com/watch?v=6FnwAbd2SDY
 
-- [ ] **[BACK-003]** Configurar Roles & Permissions
+- [x] **[BACK-003]** Configurar Roles & Permissions
   - Public: GET apenas (findMany, findOne)
   - Authenticated: CRUD completo (admin)
   - Estimativa: 1h

@@ -25,12 +25,6 @@
       "allowedTypes": [
         "images"
       ]
-    },
-    "book": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::book.book",
-      "inversedBy": "author"
     }
   }
 }

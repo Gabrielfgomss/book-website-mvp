@@ -18,9 +18,8 @@
     },
     "author": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::author.author",
-      "mappedBy": "book"
+      "relation": "oneToOne",
+      "target": "api::author.author"
     },
     "categories": {
       "type": "enumeration",
