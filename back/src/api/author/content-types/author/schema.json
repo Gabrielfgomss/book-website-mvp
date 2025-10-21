@@ -25,6 +25,12 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "books": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::book.book",
+      "mappedBy": "author"
     }
   }
 }

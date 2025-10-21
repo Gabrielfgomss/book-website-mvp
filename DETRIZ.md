@@ -86,7 +86,12 @@ Entregar um site responsivo em React + TypeScript com painel Strapi. Deploy em H
   - Estimativa: 1h
   - DoD: API pública acessível sem token
 
-- [ ] **[BACK-004]** Popular DB com dados de teste
+  - Importar books.json existente
+  - Criar 3 autores de exemplo
+  - Criar páginas Home, Sobre, Contato
+  - Estimativa: 2h
+  - DoD: 10+ livros visíveis na API
+ [x] **[BACK-004]** Popular DB com dados de teste
   - Importar books.json existente
   - Criar 3 autores de exemplo
   - Criar páginas Home, Sobre, Contato
