@@ -98,13 +98,13 @@ Entregar um site responsivo em React + TypeScript com painel Strapi. Deploy em H
   - Estimativa: 2h
   - DoD: 10+ livros visíveis na API
 
-- [ ] **[FRONT-001]** Implementar debounce no SearchBar
+- [x] **[FRONT-001]** Implementar debounce no SearchBar
   - Usar hook useDebounce existente
   - Evitar chamadas excessivas à API
   - Estimativa: 1h
   - DoD: Busca só dispara após 500ms de inatividade
 
-- [ ] **[FRONT-002]** Atualizar booksService.ts para Strapi API
+- [x] **[FRONT-002]** Atualizar booksService.ts para Strapi API
   - Ajustar endpoints para formato Strapi REST
   - Tratar paginação do Strapi (meta.pagination)
   - Estimativa: 2h

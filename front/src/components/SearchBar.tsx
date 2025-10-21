@@ -9,7 +9,7 @@ import { useDebounce } from "@/hooks/useDebounce"
 export const SearchBar = () => {
   const { filters, setFilters } = useBooks()
   const [localSearch, setLocalSearch] = useState(filters.searchTerm)
-  const debouncedSearch = useDebounce(localSearch, 300)
+  const debouncedSearch = useDebounce(localSearch, 500)
 
   useEffect(() => {
     setFilters({ searchTerm: debouncedSearch })
