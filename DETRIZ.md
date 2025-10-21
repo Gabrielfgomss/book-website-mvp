@@ -60,33 +60,25 @@ Entregar um site responsivo em React + TypeScript com painel Strapi. Deploy em H
 - Hospedagem frontend: Vercel (recomendada) ou Hostinger static
 - Processo: PM2 para manter Strapi
 
-## 3) ESCOPO PRINCIPAL (V0)
-- Frontend: React + TypeScript + Vite
-- UI: TailwindCSS + shadcn/ui + lucide-react
-- Estado: React Context
-- Router: react-router-dom
-- PDF viewer: react-pdf
-- CMS: Strapi (Node.js)
-- Hospedagem backend: Hostinger Cloud VPS (ou HostGator VPS)
-- Hospedagem frontend: Vercel (recomendada) ou Hostinger static
-- Processo: PM2 para manter Strapi
-
 ## 4) BACKLOG PRIORIZADO (Product Backlog)
 
 ### 🔴 CRÍTICO - Sprint 1 (Dias 1-5)
 **Epic:** Setup Backend + Integrações Básicas
 
-- [ ] **[BACK-001]** Inicializar projeto Strapi v4.x
+- [x] **[BACK-001]** Inicializar projeto Strapi v4.x
   - Estimativa: 2h
   - Dependências: Nenhuma
   - DoD: Strapi rodando localmente na porta 1337
 
-- [ ] **[BACK-002]** Criar Content Types (Models)
+- [ x ] **[BACK-002]** Criar Content Types (Models)
   - Book: title, author (relation), categories (array), summary, pages_count, publish_date, cover_image, pdf_file, slug
   - Author: name, bio, photo
   - Page: key, title, content (richtext)
   - Estimativa: 3h
   - DoD: Models criados e testados no admin
+  - Vídeos:
+    - https://www.youtube.com/watch?v=vcopLqUq594
+    - https://www.youtube.com/watch?v=6FnwAbd2SDY
 
 - [ ] **[BACK-003]** Configurar Roles & Permissions
   - Public: GET apenas (findMany, findOne)
@@ -230,15 +222,6 @@ Entregar um site responsivo em React + TypeScript com painel Strapi. Deploy em H
 - [ ] **[SEC-006]** Fail2ban para proteger SSH
 
 ## 5) ENTREGAVEIS
-- Frontend com Home, BookDetails, Sobre, Contato
-- Filtros por titulo, autor, categoria
-- Skeleton loaders
-- Leitor de PDF integrado
-- Strapi com colecoes: Book, Author, Page
-- Deploy ativo, dominio e SSL
-- Documentacao e suporte inicial (6 meses)
-
-## 5) ENTREGAVEIS
 - Frontend com Home, BookDetails, Sobre, Contato ✅
 - Filtros por titulo, autor, categoria ✅
 - Skeleton loaders ✅
@@ -246,11 +229,6 @@ Entregar um site responsivo em React + TypeScript com painel Strapi. Deploy em H
 - Strapi com colecoes: Book, Author, Page 🔄
 - Deploy ativo, dominio e SSL 🔄
 - Documentacao e suporte inicial (6 meses) 🔄
-
-## 6) MODELO DE DADOS (Strapi)
-**Book**: title, author, categories, summary, pages_count, publish_date, cover_image, pdf_file, slug
-**Author**: name, bio, photo
-**Page**: key, title, content
 
 ## 6) MODELO DE DADOS (Strapi)
 
@@ -289,18 +267,6 @@ Page independente (Single Type opcional para Home config)
 ```
 
 ## 7) ARQUITETURA E PASTAS
-```
-src/
-  components/
-  pages/
-  contexts/
-  services/
-  hooks/
-  utils/
-  assets/
-  styles/
-```
-## 7) ARQUITETURA E PASTAS
 
 **Frontend (React + Vite) - ✅ CONCLUÍDO**
 ```
@@ -337,11 +303,6 @@ back/
 Seguir padrao de camadas (dominio, aplicacao, infra, ui). Seguir SOLID e DRY.
 
 ## 8) SERVICES (front)
-Arquivo: src/services/booksService.ts
-- getBooks(params)
-- getBookById(id)
-- searchBooks(q)
-## 8) SERVICES (front)
 
 Arquivo: `src/services/booksService.ts`
 
@@ -372,15 +333,6 @@ Arquivo: `src/services/booksService.ts`
   }
 }
 ```
-
-## 9) COMPONENTES PRINCIPAIS
-- CardBook
-- FilterBar
-- SkeletonCard
-- BookDetail
-- Header
-- Footer
-- Modal/Toast
 
 ## 9) COMPONENTES PRINCIPAIS
 - CardBook ✅
@@ -460,28 +412,6 @@ Arquivo: `src/services/booksService.ts`
     - **Prioridade:** 🟡 IMPORTANTE
 
 ## 11) SEGURANCA (minimo necessario)
-**Backend (Strapi):**
-- HTTPS (Let's Encrypt ou Cloudflare)
-- Roles e permissions (API publica: GET apenas)
-- Admin com senha forte e 2FA opcional
-- Variaveis de ambiente para secrets (JWT, DB)
-- Limitar upload size (ex: 64MB)
-- Atualizacoes do Strapi
-
-**Servidor (VPS):**
-- Firewall UFW: permitir 22 (SSH), 80 e 443
-- Criar usuario nao-root para deploy
-- Configurar fail2ban (opcional)
-- Rodar Strapi via PM2
-
-**Cloud / CDN:**
-- Cloudflare: SSL Full (strict), WAF basico, Rate Limiting (opcional)
-
-**Aplicacao:**
-- CORS restrito ao dominio do front
-- Sanitizacao/validacao de input no backend e frontend
-
-## 11) SEGURANCA (minimo necessario)
 
 **Backend (Strapi):**
 - ✅ HTTPS (Let's Encrypt ou Cloudflare) [SEC-003]
@@ -514,11 +444,6 @@ Arquivo: `src/services/booksService.ts`
 - [ ] Rate limiting ativo (testar com Apache Bench)
 - [ ] Backup testado (restaurar em ambiente de teste)
 
-## 12) BACKUPS E MONITORAMENTO
-- Backup do banco via cron (dump) diario/semana
-- Backup de uploads para storage externo (S3 ou FTP)
-- PM2 logs e rotacionamento
-- Uptime monitor (UptimeRobot ou Better Uptime)
 
 ## 12) BACKUPS E MONITORAMENTO
 
@@ -661,12 +586,6 @@ jobs:
 ```
 
 ## 15) TESTES E QA
-- Testar CRUD completo, uploads e leitura de PDF
-- Performance: Lighthouse
-- SSL: SSL Labs
-- Testes basicos de seguranca (OWASP top 10 awareness)
-
-## 15) TESTES E QA
 
 **Checklist de QA (antes do deploy final):**
 
@@ -710,10 +629,7 @@ jobs:
 - Carga: Apache Bench (`ab -n 1000 -c 100 https://api.seudominio.com/api/books`), k6.io
 - E2E: Playwright ou Cypress (opcional)
 
-## 16) DOCUMENTACAO E TREINAMENTO
-- README com passos de deploy local/producao
-- Guia rapido para uso do Strapi (screenshots ou video 10-15min)
-- Checklist de manutencao (atualizar, backups, pm2 commands)
+
 
 ## 16) DOCUMENTACAO E TREINAMENTO
 
@@ -760,7 +676,7 @@ jobs:
 
 | Dia | Tarefas | Responsável | Status |
 |-----|---------|-------------|--------|
-| 1 | [BACK-001] Inicializar Strapi | Dev | 🔄 |
+| 1 | [BACK-001] Inicializar Strapi | Dev | ✔️ |
 | 1-2 | [BACK-002] Criar models (Book, Author, Page) | Dev | 🔄 |
 | 2 | [BACK-003] Configurar permissions | Dev | 🔄 |
 | 2 | [BACK-004] Popular DB com dados de teste | Dev | 🔄 |
@@ -808,12 +724,6 @@ jobs:
 - Lições aprendidas
 - Backlog V1 (melhorias futuras)
 
-## 18) CUSTOS ESTIMADOS
-- Dominio: R$60/ano
-- Hostinger VPS: ~R$28/mensal (promocional)
-- Cloudflare: free plan available
-- Backup automatico: opcional R$20-50/mensal
-- Suporte pos-entrega: opcional R$100-200/mensal
 
 ## 18) CUSTOS ESTIMADOS
 
@@ -836,17 +746,7 @@ jobs:
 
 **Custo total primeiro ano:** ~R$ 400 (infra) + desenvolvimento + R$ 600-1200 (suporte 6 meses)
 
-## 19) CHECKLIST FINAL (Definition of Done)
-- [ ] Criar repositorios (frontend e backend)
-- [ ] Implementar modelos Strapi (Book, Author, Page)
-- [ ] Desenvolver UI e components reutilizaveis
-- [ ] Implementar services e hooks para API
-- [ ] Configurar VPS (Node, DB, PM2, Nginx)
-- [ ] Deploy Strapi e validar painel/admin
-- [ ] Deploy frontend e validar integracao
-- [ ] Configurar SSL (Certbot) e Cloudflare
-- [ ] Criar backups e rotinas de manutencao
-- [ ] Documentar e treinar cliente
+
 
 ## 19) CHECKLIST FINAL (Definition of Done)
 
@@ -933,7 +833,7 @@ jobs:
 - Backups testados: 1x/mês
 - Satisfação contínua do cliente: >8/10
 
-## 22) SNIPPETS IMPORTANTES
+
 ## 22) SNIPPETS IMPORTANTES
 
 **Nginx proxy (resumo):**
