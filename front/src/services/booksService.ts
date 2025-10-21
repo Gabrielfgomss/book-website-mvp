@@ -18,6 +18,21 @@ const buildUrl = (endpoint: string, params: Record<string, any> = {}) => {
 const mapStrapiBookToBook = (strapiBook: StrapiBook): Book => {
   const baseUrl = API_URL.replace('/api', '')
   
+  // Formatar display_date
+  const displayDate = strapiBook.display_date 
+    ? new Date(strapiBook.display_date).toLocaleDateString('pt-BR', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      })
+    : strapiBook.publish_date
+      ? new Date(strapiBook.publish_date).toLocaleDateString('pt-BR', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        })
+      : 'Data não disponível'
+  
   return {
     id: strapiBook.documentId || String(strapiBook.id),
     title: strapiBook.title || 'Sem Título',
@@ -27,6 +42,7 @@ const mapStrapiBookToBook = (strapiBook: StrapiBook): Book => {
     publishedYear: strapiBook.publish_date 
       ? new Date(strapiBook.publish_date).getFullYear() 
       : new Date().getFullYear(),
+    displayDate: displayDate,
     coverImage: strapiBook.cover_image?.url 
       ? `${baseUrl}${strapiBook.cover_image.url}`
       : 'https://via.placeholder.com/200x300?text=Sem+Capa',

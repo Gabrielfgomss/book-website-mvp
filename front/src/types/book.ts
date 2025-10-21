@@ -5,6 +5,7 @@ export interface Book {
   category: string
   pages: number
   publishedYear: number
+  displayDate: string // Data de exibição formatada
   coverImage: string
   synopsis: string
   pdfUrl: string

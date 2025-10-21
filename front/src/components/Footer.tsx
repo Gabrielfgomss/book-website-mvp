@@ -27,16 +27,6 @@ export const Footer = () => {
                   Catálogo
                 </Link>
               </li>
-              <li>
-                <Link to="/sobre" className="text-muted-foreground hover:text-primary transition-colors">
-                  Sobre o Projeto
-                </Link>
-              </li>
-              <li>
-                <Link to="/contato" className="text-muted-foreground hover:text-primary transition-colors">
-                  Entre em Contato
-                </Link>
-              </li>
             </ul>
           </div>
 

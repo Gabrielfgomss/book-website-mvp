@@ -5,17 +5,24 @@ import type { Book } from "@/types/book"
 import { booksService } from "@/services/booksService"
 import { BookInfo } from "@/components/BookInfo"
 import { PDFViewer } from "@/components/PDFViewer"
+import { BookCard } from "@/components/BookCard"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { ArrowLeft, AlertCircle } from "lucide-react"
+import { useBooks } from "@/contexts/BooksContext"
 
 export const BookDetails = () => {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
+  const { books } = useBooks()
   const [book, setBook] = useState<Book | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  
+  const recommendedBooks = book
+    ? books.filter(b => b.id !== book.id).slice(0, 4)
+    : []
 
   useEffect(() => {
     const loadBook = async () => {
@@ -96,6 +103,22 @@ export const BookDetails = () => {
           <h2 className="text-2xl font-bold mb-4">Ler Online</h2>
           <PDFViewer pdfUrl={book.pdfUrl} title={book.title} />
         </motion.div>
+
+        {recommendedBooks.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-12"
+          >
+            <h2 className="text-2xl font-bold mb-6">Livros Relacionados</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {recommendedBooks.map((relatedBook, index) => (
+                <BookCard key={relatedBook.id} book={relatedBook} index={index} />
+              ))}
+            </div>
+          </motion.div>
+        )}
       </div>
     </div>
   )

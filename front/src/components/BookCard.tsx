@@ -4,8 +4,8 @@ import type { Book as BookType } from "@/types/book"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { BookOpen, Star, User } from "lucide-react"
-import { formatPages, formatRating, truncateText } from "@/utils/formatters"
+import { BookOpen, Calendar, User } from "lucide-react"
+import { formatPages, truncateText } from "@/utils/formatters"
 
 interface BookCardProps {
   book: BookType
@@ -42,9 +42,9 @@ export const BookCard = ({ book, index = 0 }: BookCardProps) => {
           <p className="text-sm text-muted-foreground mb-4 line-clamp-3 flex-1">{truncateText(book.synopsis, 120)}</p>
 
           <div className="flex items-center justify-between text-sm">
-            <div className="flex items-center gap-1">
-              <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-              <span className="font-medium">{formatRating(book.rating)}</span>
+            <div className="flex items-center gap-1 text-muted-foreground">
+              <Calendar className="h-4 w-4" />
+              <span className="font-medium">{book.displayDate}</span>
             </div>
             <div className="flex items-center gap-1 text-muted-foreground">
               <BookOpen className="h-4 w-4" />

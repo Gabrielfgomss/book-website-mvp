@@ -3,8 +3,8 @@ import type { Book } from "@/types/book"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import { BookOpen, Calendar, Hash, Star, User } from "lucide-react"
-import { formatRating, formatYear } from "@/utils/formatters"
+import { BookOpen, Calendar, Hash, User } from "lucide-react"
+import { formatYear } from "@/utils/formatters"
 
 interface BookInfoProps {
   book: Book
@@ -34,10 +34,9 @@ export const BookInfo = ({ book }: BookInfoProps) => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-1 mb-6">
-                <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                <span className="font-semibold text-lg">{formatRating(book.rating)}</span>
-                <span className="text-muted-foreground text-sm ml-1">/ 5.0</span>
+              <div className="flex items-center gap-2 mb-6">
+                <Calendar className="h-5 w-5 text-primary" />
+                <span className="font-semibold text-lg">{book.displayDate}</span>
               </div>
 
               <Separator className="my-6" />

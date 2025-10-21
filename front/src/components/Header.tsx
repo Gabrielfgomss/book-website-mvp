@@ -11,8 +11,6 @@ export const Header = () => {
 
   const navLinks = [
     { path: "/", label: "Home" },
-    { path: "/sobre", label: "Sobre" },
-    { path: "/contato", label: "Contato" },
   ]
 
   const getLinkClass = ({ isActive }: { isActive: boolean }) =>
