@@ -19,7 +19,8 @@ import { Context } from 'koa';
  * }
  */
 
-export default async (ctx: Context, next: () => Promise<any>) => {
+export default () => {
+  return async (ctx: Context, next: () => Promise<any>) => {
     const startTime = Date.now();
 
     try {
@@ -89,6 +90,7 @@ export default async (ctx: Context, next: () => Promise<any>) => {
       // Re-throw para deixar erro ser tratado por outro middleware
       throw err;
     }
+  };
 };
 
 /**
