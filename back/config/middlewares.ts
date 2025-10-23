@@ -42,12 +42,29 @@ export default [
     config: {
       enabled: true,
       origin: [
-        'http://localhost:5173', // Frontend dev
+        // Development (localhost)
+        'http://localhost:5173', // Frontend dev (Vite default)
         'http://localhost:5174', // Frontend dev (alternative port)
         'http://127.0.0.1:5173', // Frontend dev (127.0.0.1)
         'http://127.0.0.1:5174', // Frontend dev (127.0.0.1 alternative port)
         'http://localhost:3000', // Alternative frontend port
-        process.env.CLIENT_URL, // Production frontend URL
+        
+        // Production - Vercel
+        'https://seu-projeto.vercel.app',
+        'https://www.seu-projeto.vercel.app',
+        
+        // Production - Netlify (se usar)
+        'https://book-mvp.netlify.app',
+        'https://seu-projeto.netlify.app',
+        'https://seu-projeto.netlify.com',
+        
+        // Production - Domínio customizado (se tiver)
+        'https://seudominio.com',
+        'https://www.seudominio.com',
+        
+        // Environment variable para URLs dinâmicas
+        process.env.CLIENT_URL,
+        process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`,
       ].filter(Boolean), // Remove undefined values
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
       headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
