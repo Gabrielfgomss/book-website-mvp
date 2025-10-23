@@ -1,5 +1,7 @@
-import { Context } from 'koa';
-
+/**
+ * Middleware factory para validação de uploads
+ * Exporta uma função que retorna o middleware (padrão Strapi)
+ */
 const ALLOWED_MIMES = new Set([
   'application/pdf',
   'image/jpeg',
@@ -9,8 +11,8 @@ const ALLOWED_MIMES = new Set([
 
 const MAX_BYTES = 64 * 1024 * 1024; // 64MB
 
-export default (config, { strapi }) => {
-  return async (ctx: Context, next: () => Promise<any>) => {
+module.exports = (config, { strapi }) => {
+  return async (ctx, next) => {
     // Only intercept multipart/form-data uploads
     const contentType = ctx.request.header['content-type'] || '';
     if (!contentType.includes('multipart/form-data')) {
