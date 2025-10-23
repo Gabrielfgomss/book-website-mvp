@@ -12,7 +12,7 @@ const cache = new LRU<string, { count: number; resetTime: number }>({
   ttl: windowMs * 5,
 });
 
-export default () => {
+export default (config, { strapi }) => {
   return async (ctx: Context, next: () => Promise<any>) => {
     try {
       const ip = ctx.request.ip || ctx.ip || ctx.request.header['x-forwarded-for'] || ctx.req.socket.remoteAddress;

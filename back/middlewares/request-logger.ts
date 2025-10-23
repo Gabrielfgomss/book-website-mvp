@@ -1,26 +1,5 @@
-import { Context } from 'koa';
-
-/**
- * Middleware de logging de requisições com IP, endpoint, método e status.
- * 
- * Útil para monitoramento, auditoria e detecção de padrões de ataque.
- * Em produção, integrar com Sentry, Better Stack ou CloudWatch para análise centralizada.
- * 
- * Log structure:
- * {
- *   timestamp: ISO8601,
- *   ip: string,
- *   method: string,
- *   path: string,
- *   status: number,
- *   duration_ms: number,
- *   user_agent: string,
- *   referer: string
- * }
- */
-
-export default () => {
-  return async (ctx: Context, next: () => Promise<any>) => {
+export default (config, { strapi }) => {
+  return async (ctx, next) => {
     const startTime = Date.now();
 
     try {
@@ -93,44 +72,11 @@ export default () => {
   };
 };
 
-/**
- * Enviar logs para serviço centralizado (Sentry, Better Stack, etc)
- */
 function logToRemoteService(logEntry: any) {
-  // Exemplo com Sentry (descomente se usar)
+  // Sentry
   // if (typeof Sentry !== 'undefined') {
   //   Sentry.captureMessage(`[${logEntry.level}] ${logEntry.method} ${logEntry.path}`, logEntry.level);
   // }
-
-  // Exemplo com Better Stack (descomente se usar)
-  // const LOGTAIL_SOURCE_TOKEN = process.env.LOGTAIL_SOURCE_TOKEN;
-  // if (LOGTAIL_SOURCE_TOKEN) {
-  //   fetch('https://in.logtail.com/', {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify({ dt: logEntry.timestamp, ...logEntry, source_token: LOGTAIL_SOURCE_TOKEN }),
-  //   }).catch(() => {}); // Não falhar a requisição se logging falhar
-  // }
-
-  // Exemplo com CloudWatch (AWS - descomente se usar)
-  // const cloudwatch = new AWS.CloudWatch();
-  // cloudwatch.putMetricData({
-  //   Namespace: 'StrapiCloud',
-  //   MetricData: [
-  //     {
-  //       MetricName: 'Requests',
-  //       Value: 1,
-  //       Unit: 'Count',
-  //       Dimensions: [
-  //         { Name: 'IP', Value: logEntry.ip },
-  //         { Name: 'Method', Value: logEntry.method },
-  //         { Name: 'Path', Value: logEntry.path },
-  //       ],
-  //     },
-  //   ],
-  // }, (err) => {
-  //   if (err) console.error('CloudWatch error:', err);
-  // });
 }
 
 /**

@@ -1,7 +1,6 @@
 export default [
   'strapi::logger',
   'strapi::errors',
-  // Request logging middleware: captura IP, endpoint, status, duração
   {
     name: 'global::request-logger',
     config: {
@@ -78,14 +77,12 @@ export default [
       keepHeaderOnError: true,
     },
   },
-  // Rate limiting: bloqueia ataques de força bruta e abusos por IP
   {
     name: 'global::rate-limit',
     config: {
       enabled: true,
     },
   },
-  // Upload validation: bloqueia tipos e tamanhos não permitidos
   {
     name: 'global::upload-validate',
     config: {

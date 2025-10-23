@@ -9,7 +9,7 @@ const ALLOWED_MIMES = new Set([
 
 const MAX_BYTES = 64 * 1024 * 1024; // 64MB
 
-export default () => {
+export default (config, { strapi }) => {
   return async (ctx: Context, next: () => Promise<any>) => {
     // Only intercept multipart/form-data uploads
     const contentType = ctx.request.header['content-type'] || '';
