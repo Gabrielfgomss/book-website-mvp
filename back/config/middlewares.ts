@@ -1,6 +1,13 @@
 export default [
   'strapi::logger',
   'strapi::errors',
+  // Request logging middleware: captura IP, endpoint, status, duração
+  {
+    name: 'global::request-logger',
+    config: {
+      enabled: true,
+    },
+  },
   {
     name: 'strapi::security',
     config: {
