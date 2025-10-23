@@ -2,7 +2,7 @@
  * Middleware factory para rate limiting
  * Exporta uma função que retorna o middleware (padrão Strapi)
  */
-const LRU = require('lru-cache');
+const { LRUCache } = require('lru-cache');
 
 // Simple in-memory rate limiter using LRU cache.
 // Suitable for single-instance deployments (Strapi Cloud manages scaling).
@@ -10,7 +10,7 @@ const LRU = require('lru-cache');
 const windowMs = 60 * 1000; // 1 minute
 const maxRequests = 60; // 60 requests per IP per window
 
-const cache = new LRU({
+const cache = new LRUCache({
   max: 5000,
   ttl: windowMs * 5,
 });
