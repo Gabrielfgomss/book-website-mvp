@@ -4,7 +4,7 @@ export default [
   {
     name: 'global::request-logger',
     config: {
-      enabled: true,
+      enabled: false,
     },
   },
   {
