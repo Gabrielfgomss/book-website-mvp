@@ -14,10 +14,22 @@ const buildUrl = (endpoint: string, params: Record<string, any> = {}) => {
   return url.toString()
 }
 
+// Helper para construir URL completa de assets
+const getAssetUrl = (url: string | undefined): string => {
+  if (!url) return ''
+  
+  // Se a URL já é absoluta (começa com http:// ou https://), retornar como está
+  if (url.startsWith('http://') || url.startsWith('https://')) {
+    return url
+  }
+  
+  // Se é uma URL relativa, concatenar com o base URL
+  const baseUrl = API_URL.replace('/api', '')
+  return `${baseUrl}${url}`
+}
+
 // Mapear dados do Strapi para nosso tipo Book
 const mapStrapiBookToBook = (strapiBook: StrapiBook): Book => {
-  const baseUrl = API_URL.replace('/api', '')
-  
   // Formatar display_date
   const displayDate = strapiBook.display_date 
     ? new Date(strapiBook.display_date).toLocaleDateString('pt-BR', {
@@ -44,11 +56,11 @@ const mapStrapiBookToBook = (strapiBook: StrapiBook): Book => {
       : new Date().getFullYear(),
     displayDate: displayDate,
     coverImage: strapiBook.cover_image?.url 
-      ? `${baseUrl}${strapiBook.cover_image.url}`
+      ? getAssetUrl(strapiBook.cover_image.url)
       : 'https://via.placeholder.com/200x300?text=Sem+Capa',
     synopsis: strapiBook.summary || `"${strapiBook.title}" é uma obra fascinante.`,
     pdfUrl: strapiBook.pdf_file?.url 
-      ? `${baseUrl}${strapiBook.pdf_file.url}`
+      ? getAssetUrl(strapiBook.pdf_file.url)
       : '',
     rating: Number((Math.random() * 2 + 3).toFixed(1)), // Mock rating por enquanto
     isbn: strapiBook.slug || '',
