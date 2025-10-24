@@ -18,6 +18,11 @@ const cache = new LRUCache({
 module.exports = (config, { strapi }) => {
   return async (ctx, next) => {
     try {
+      // ⚠️ IMPORTANTE: Não aplicar rate limit em rotas do admin para evitar bloqueio de login
+      if (ctx.request.url.startsWith('/admin') || ctx.request.url.startsWith('/_health')) {
+        return await next();
+      }
+
       const ip = ctx.request.ip || ctx.ip || ctx.request.header['x-forwarded-for'] || ctx.req.socket.remoteAddress;
       if (!ip) return await next();
 
@@ -31,6 +36,7 @@ module.exports = (config, { strapi }) => {
         entry.count += 1;
         cache.set(key, entry);
         if (entry.count > maxRequests) {
+          strapi.log.warn(`⚠️ Rate limit excedido para IP ${ip}: ${entry.count} requisições em 1 minuto`);
           ctx.set('Retry-After', String(Math.ceil((entry.resetTime - now) / 1000)));
           ctx.status = 429;
           ctx.body = { error: 'Too many requests. Please try again later.' };
@@ -41,6 +47,7 @@ module.exports = (config, { strapi }) => {
       await next();
     } catch (err) {
       // if anything goes wrong, don't block legit traffic
+      strapi.log.error('Erro no middleware rate-limit:', err);
       await next();
     }
   };

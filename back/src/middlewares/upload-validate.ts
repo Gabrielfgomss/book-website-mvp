@@ -13,6 +13,11 @@ const MAX_BYTES = 64 * 1024 * 1024; // 64MB
 
 module.exports = (config, { strapi }) => {
   return async (ctx, next) => {
+    // ⚠️ Não validar uploads em rotas do admin (pode causar problemas com uploads do painel)
+    if (ctx.request.url.startsWith('/admin')) {
+      return await next();
+    }
+
     // Only intercept multipart/form-data uploads
     const contentType = ctx.request.header['content-type'] || '';
     if (!contentType.includes('multipart/form-data')) {

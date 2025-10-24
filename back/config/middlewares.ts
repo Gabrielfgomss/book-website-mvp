@@ -4,7 +4,7 @@ export default [
   {
     name: 'global::request-logger',
     config: {
-      enabled: true, // ✅ Habilitar agora que está no padrão correto
+      enabled: false, // ⏸️ Desabilitado temporariamente para debug
     },
   },
   {
@@ -80,13 +80,13 @@ export default [
   {
     name: 'global::rate-limit',
     config: {
-      enabled: true,
+      enabled: false, // ⏸️ Desabilitado temporariamente para debug
     },
   },
   {
     name: 'global::upload-validate',
     config: {
-      enabled: true,
+      enabled: false, // ⏸️ Desabilitado temporariamente para debug
     },
   },
   'strapi::poweredBy',

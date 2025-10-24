@@ -58,6 +58,14 @@ module.exports = (config, { strapi }) => {
         console.log(
           `${color}[${logEntry.timestamp}] ${logEntry.ip} ${logEntry.method} ${logEntry.path} ${logEntry.status} ${logEntry.duration_ms}ms${reset}`
         );
+        
+        // 🔍 Log detalhado para erros de autenticação (ajuda no debug)
+        if (logEntry.path.includes('/admin/login') || logEntry.path.includes('/auth')) {
+          console.log(`🔐 AUTH: ${logEntry.method} ${logEntry.path} - Status ${logEntry.status}`);
+          if (logEntry.status >= 400) {
+            console.error(`❌ AUTH ERROR: IP ${logEntry.ip} falhou login (status ${logEntry.status})`);
+          }
+        }
       } else {
         // Em prod, enviar para serviço de logging centralizado via HTTP
         logToRemoteService(logEntry);
