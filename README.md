@@ -54,25 +54,12 @@ Acesse: `http://localhost:1337/admin`
 - Strapi v5.28.0
 - Node.js 20.x
 - TypeScript
-- SQLite (dev) / MySQL (prod)
+- PostgreSQL (dev) / PostgreSQL (prod)
 
 ## 📦 Deploy
 
 - **Frontend:** Vercel
-- **Backend:** Hostinger VPS + Nginx + PM2
+- **Backend:** Strapi Cloud
 - **CDN:** Cloudflare
 
-## 👥 Time
-
-- **Desenvolvedor:** [Seu nome]
-- **Cliente:** [Nome do cliente]
-
-## 📝 Tarefas
-
-Ver [DETRIZ.md](./DETRIZ.md) para backlog completo e status das tarefas.
-
-**Sprint atual:** Sprint 1 - Backend Setup
-
----
-
-**Última atualização:** 20/10/2025
+**Última atualização:** 25/10/2025
